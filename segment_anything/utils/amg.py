@@ -46,7 +46,7 @@ class MaskData:
             if v is None:
                 self._stats[k] = None
             elif isinstance(v, torch.Tensor):
-                self._stats[k] = v[torch.as_tensor(keep, device=v.device)]
+                self._stats[k] = v[torch.as_tensor(keep, device='cuda:1')]
             elif isinstance(v, np.ndarray):
                 self._stats[k] = v[keep.detach().cpu().numpy()]
             elif isinstance(v, list) and keep.dtype == torch.bool:
