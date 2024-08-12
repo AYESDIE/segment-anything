@@ -287,7 +287,7 @@ class SamAutomaticMaskGenerator:
         data = MaskData(
             masks=masks.flatten(0, 1),
             iou_preds=iou_preds.flatten(0, 1),
-            points=torch.as_tensor(points.repeat(masks.shape[1], axis=0)),
+            points=torch.as_tensor(points.repeat(masks.shape[1], axis=0), device = 'cuda:1'),
         )
         del masks
 
